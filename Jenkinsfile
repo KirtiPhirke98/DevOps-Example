@@ -18,8 +18,15 @@ node {
         sh "${mvnHome}/bin/mvn clean install -f pom.xml"
           }
 		
-    stage('Build Docker Image') {
-      // build docker image
-      dockerImage = docker.build("devopsexample:${env.BUILD_NUMBER}")
-    }
+     stage ('Build Docker image'){
+        echo "Into buiding docker image"
+        docker.build registryName
+          }
+	
+	stage('ACR Push') {
+        sh "az acr login -n mynewconreg --username mynewconreg --password e7WuJxuypxNedQn6Jlj0betVvZ=cFqXH"
+        sh " docker tag myjavaapp1 mynewconreg.azurecr.io/myjavaapp1:latest"
+        sh " docker push mynewconreg.azurecr.io/myjavaapp1:latest"
+         }
+	
 }
