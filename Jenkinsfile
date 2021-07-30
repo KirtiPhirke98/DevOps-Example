@@ -2,7 +2,7 @@ node {
      
     def mvnHome = tool 'Maven 3'  
   //  def dockerImage
-    registryName = "myjavaapp1"
+    registryName = "myjavaapp2"
     registryUrl = "mynewconreg.azurecr.io"
     registryCredential= "mynewconreg"
 	
@@ -26,7 +26,7 @@ node {
 	
 	stage('ACR Push') {
         sh "az acr login -n mynewconreg --username mynewconreg --password e7WuJxuypxNedQn6Jlj0betVvZ=cFqXH"
-        sh " docker tag myjavaapp1 mynewconreg.azurecr.io/myjavaapp1:latest"
+        sh " docker tag myjavaapp2 mynewconreg.azurecr.io/myjavaapp1:latest"
         sh " docker push mynewconreg.azurecr.io/myjavaapp1:latest"
          }
 	
