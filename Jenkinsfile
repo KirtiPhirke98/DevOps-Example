@@ -1,10 +1,11 @@
 node {
      
-    def mvnHome = tool 'Maven 3'
-    // holds reference to docker image
-    def dockerImage
-    // ip address of the docker private repository(nexus)
- 
+    def mvnHome = tool 'Maven 3'  
+  //  def dockerImage
+    registryName = "myjavaapp1"
+    registryUrl = "mynewconreg.azurecr.io"
+    registryCredential= "mynewconreg"
+	
     def dockerImageTag = "devopsexample${env.BUILD_NUMBER}"
     
     stage('Clone Repo') 
