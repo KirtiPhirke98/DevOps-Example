@@ -26,8 +26,8 @@ node {
 	
 	stage('ACR Push') {
         sh "az acr login -n mynewconreg --username mynewconreg --password e7WuJxuypxNedQn6Jlj0betVvZ=cFqXH"
-        sh " docker tag myjavaapp2 mynewconreg.azurecr.io/myjavaapp1:latest"
-        sh " docker push mynewconreg.azurecr.io/myjavaapp1:latest"
+        sh " docker tag myjavaapp2 mynewconreg.azurecr.io/myjavaapp2"
+        sh " docker push mynewconreg.azurecr.io/myjavaapp2"
          }
 	
 }
