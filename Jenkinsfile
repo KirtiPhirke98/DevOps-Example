@@ -10,7 +10,7 @@ node {
     
     stage('Clone Repo') 
     { 
-      git 'https://github.com/shipra-trivedi/DevOps-Example.git'         
+      git 'https://github.com/KirtiPhirke98/DevOps-Example.git'         
       mvnHome = tool 'Maven 3'
     }    
   
@@ -24,10 +24,10 @@ node {
         docker.build registryName
           }
 	
-	stage('ACR Push') {
+	/*stage('ACR Push') {
         sh "az acr login -n mynewconreg --username mynewconreg --password e7WuJxuypxNedQn6Jlj0betVvZ=cFqXH"
         sh " docker tag myjavaapp2 mynewconreg.azurecr.io/myjavaapp2"
         sh " docker push mynewconreg.azurecr.io/myjavaapp2"
-         }
+         }*/
 	
 }
